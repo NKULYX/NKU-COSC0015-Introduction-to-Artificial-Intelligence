@@ -1,0 +1,14 @@
+result*/
+data*/
+.idea/
+__pycache__/
+.ipynb_checkpoints/
+Scripts/
+venv/
+Lib/
+pyvenv.cfg
+
+
+*.doc*
+!/程序报告内容格式要求.docx
+
