@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+import torchvision
 
 from PIL import Image
 from PIL import Image, ImageDraw, ImageFont
@@ -46,7 +47,11 @@ class Recognition(object):
         """
         self.detector = FaceDetector()
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.mobilenet = MobileNetV1(classes=2)
+        # self.mobilenet = MobileNetV1(classes=2)
+        model = torchvision.models.resnet50()
+        model.fc = torch.nn.Linear(model.fc.in_features, 2)
+        self.mobilenet = model
+
         if model_path:
             self.mobilenet.load_state_dict(
                 torch.load(model_path, map_location=device))

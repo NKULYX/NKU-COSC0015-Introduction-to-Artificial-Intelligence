@@ -9,14 +9,14 @@ class MobileNetV1(nn.Module):
         self.mobilebone = nn.Sequential(
             self._conv_bn(3, 32, 2),
             self._conv_dw(32, 64, 1),
-            #self._conv_dw(64, 128, 2),
-            #self._conv_dw(128, 128, 1),
-            #self._conv_dw(128, 256, 2),
-            #self._conv_dw(256, 256, 1),
-            #self._conv_dw(256, 512, 2),
-            #self._top_conv(512, 512, 5),
-            #self._conv_dw(512, 1024, 2),
-            #self._conv_dw(1024, 1024, 1),
+            self._conv_dw(64, 128, 2),
+            self._conv_dw(128, 128, 1),
+            self._conv_dw(128, 256, 2),
+            self._conv_dw(256, 256, 1),
+            self._conv_dw(256, 512, 2),
+            self._top_conv(512, 512, 5),
+            self._conv_dw(512, 1024, 2),
+            self._conv_dw(1024, 1024, 1),
         )
         # self.avgpool = nn.AvgPool2d(kernel_size=7, stride=1)
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
