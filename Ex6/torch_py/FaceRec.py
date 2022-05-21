@@ -48,7 +48,7 @@ class Recognition(object):
         self.detector = FaceDetector()
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         # self.mobilenet = MobileNetV1(classes=2)
-        model = torchvision.models.resnet18()
+        model = torchvision.models.resnet50()
         model.fc = torch.nn.Linear(model.fc.in_features, 2)
         self.mobilenet = model
 
