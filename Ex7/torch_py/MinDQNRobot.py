@@ -38,8 +38,8 @@ class MinDQNRobot(QRobot):
         """
         super(MinDQNRobot, self).__init__(maze)
         maze.set_reward(reward={
-            "hit_wall": 10.,
-            "destination": -50.,
+            "hit_wall": -10.,
+            "destination": 50.,
             "default": 1.,
         })
         self.maze = maze
